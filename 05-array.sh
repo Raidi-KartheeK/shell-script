@@ -2,9 +2,9 @@
  
  FRUITS=("APPLE" "KIWI" "ORANGE")
 
- echo "first fruit is: ${FRUIT[1]}"
- echo "first fruit is: ${FRUIT[2]}"
- echo "first fruit is: ${FRUIT[3]}"
+ echo "First fruit is: ${FRUITS[0]}"
+ echo "Second fruit is: ${FRUITS[1]}"
+ echo "Third  fruit is: ${FRUITS[2]}"
 
- echo "first fruit is: ${FRUIT[@]}"
+ echo "First fruit is: ${FRUITS[@]}"
 
