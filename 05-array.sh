@@ -1,6 +1,6 @@
 #!/ bin/bash
  
- FRUITS=("APPLE" "KIWI" "ORANGE" "guva")
+ FRUITS=("APPLE" "KIWI" "ORANGE" "GUWA")
 
  echo "First fruit is: ${FRUITS[0]}"
  echo "Second fruit is: ${FRUITS[1]}"
