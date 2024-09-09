@@ -1,6 +1,6 @@
 #!/bin/bash
-person1=raidi
-person2=bittu
+person1=vardhan
+person2=vishal
 
 echo "$person1:: hi $person2 , how are  you?"
 echo "$person2:: hello $person1, i am good .how are you doing?"
