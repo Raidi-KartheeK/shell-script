@@ -3,5 +3,5 @@
 lss -ltr
 echo "exit status:$?"
 
-ls-ltr
+ls -ltr
 echo "exit status $?"
