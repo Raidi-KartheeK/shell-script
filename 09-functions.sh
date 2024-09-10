@@ -1,14 +1,9 @@
 #!/bin/bash
 
-login(username, password){
+login_name(){
+ echo "hello ,$1!"
 
-
-	select * from user where user='username' and password='password'
-	if ($? -eq 0 )
-	then
-		echo "login success"
-	else
-		echo "login failed"
-	fi
 }
+
+login_name "rsidi"
 
