@@ -1,0 +1,12 @@
+total 9
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121  71 Sep  9 13:53 0-hello-world.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121 222 Sep  9 14:01 01-conversation.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121 339 Sep 10 10:03 05-array.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121 465 Sep 10 10:19 02-varables.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121  63 Sep 10 10:43 06-datevariable.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121 117 Sep 10 10:45 04-varibles.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121 181 Sep 10 11:18 07-exitstatus.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121 362 Sep 10 13:07 08-mysqlinstall.sh*
+-rwxr-xr-x 1 RAIDI KARTHEEK 197121  70 Sep 10 19:07 09-functions.sh*
+-rw-r--r-- 1 RAIDI KARTHEEK 197121   0 Sep 10 21:55 10-redirections.sh
+-rw-r--r-- 1 RAIDI KARTHEEK 197121   0 Sep 10 21:58 test.log
