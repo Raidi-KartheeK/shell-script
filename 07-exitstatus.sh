@@ -1,14 +1,14 @@
 #!/bin/bash
 
 lss -ltr
-if[$? -ne 0]; then 
+if [$? -ne 0]; then 
 echo "exit command is failure"
 exit 1]
-Fi
+fi
 
 ls -ltr
-if[$? -ne 0]; then 
+if [$? -ne 0]; then 
 echo "exit command is failure"
 exit 1]
-Fi
+fi
 echo "program is sucess"
