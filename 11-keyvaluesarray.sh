@@ -5,6 +5,6 @@ declare -A details
 details=( [name]=raidi [age]=30 [city]=kgm)
 
 echo "Name is ${details[name]}"
-echo "Name is ${details[age]}"
+echo "age is ${details[age]}"
 
 
