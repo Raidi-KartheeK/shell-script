@@ -6,5 +6,7 @@ details=( [name]=raidi [age]=30 [city]=kgm)
 
 echo "Name is ${details[name]}"
 echo "age is ${details[age]}"
+echo "city is ${details[city]}"
+
 
 
