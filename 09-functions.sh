@@ -1,15 +1,16 @@
 #!/bin/bash
 
- Check if the user is root
+ #Check if the user is root
 USERID=$(id -u) #to check the user is having root access are not
       VALIDATE(){
       if [ $1 -ne 0 ]
-then
+    then
       echo "command is failed"
       exit 1
-else 
+    else 
      echo "command is sucess"
 fi
+}
 
 # then 
 #          echo "please run the script with root user"
