@@ -2,7 +2,7 @@
 
 NUM=$1
 
-if [ $NUM -gt 20 ] #gt,lt,eq, -ne,-ge,-le
+if [ $NUM -gt 40 ] #gt,lt,eq, -ne,-ge,-le
 then
     echo "Given number: $NUM is grater than 20"
 else
