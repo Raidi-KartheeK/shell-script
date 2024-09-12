@@ -40,7 +40,7 @@ else
 fi
 
  
-dnf list install mysql #mysql installation
+dnf install mysql #mysql installation
 if [ $? -ne 0 ]
 then
         echo "mysql is not installed at...going to install"
