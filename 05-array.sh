@@ -9,5 +9,7 @@
  echo "Fifth fruit is : ${FRUITS[4]}"
  echo "Sixth fruit is : ${FRUITS[5]}"
 
+ 
+
  echo "First fruit is: ${FRUITS[@]}"
 
