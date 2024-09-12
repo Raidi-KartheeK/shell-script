@@ -6,6 +6,7 @@ USERID=$[id -u] #to check the user is having root access are not
         if [ $USERID -ne 0 ]
 then 
         echo "please run the script with root user"
-fi
+        exit 1
 
+fi
 
