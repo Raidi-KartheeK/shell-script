@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NUM=$!
-if [ $NUM -gt 20 ]; then
+NUM=$1
+if [ $NUM -gt 20 ] then
     echo "Given number: $NUM is grater than 20"
 else
     echo "Given number: $NUM is less than 20"
