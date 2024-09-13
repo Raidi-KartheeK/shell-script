@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Check if the user is root
+R="\e[31m
+G="\e[32m
+Y="\e[33m
+B="\e[34m
+USERID=$(id -u)
+CHECK_ROOT(){ #to check the user is having root access are not
+                             #     echo "user ID is:$USERID"
+        if [ $USERID -ne 0 ]
+then 
+        echo "please run the script with root user"
+        exit 1
+
+    fi
+}
+    VALIDATE(){
+    if [ $1 -ne 0 ]
+then 
+        echo  -e "$2 is...$R FAILED $N"
+        exit 1 
+else 
+        echo -e "$2 is...$G SUCCESS $N"
+    fi
+    } 
+    CHECK_ROOT
+#15-looping-sh git mysql nginx posfix
+    for package in $@ # $@ is all arguments pass to it
+    do 
+       dnf list install $package  
+       if [ $? -ne 0 ]
+       then
+       echo "$package is not installed going to install .."
+       dnf  install $package -y
+       VALIDATE $?  "installing $package"
+else
+        echo "$package i salready installed .. noting to do"
+        fi
+done
