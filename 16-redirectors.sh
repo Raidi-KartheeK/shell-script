@@ -59,3 +59,4 @@ N="\e[0m" #reset color
         echo -e "$package is already $Y installed .. noting to do $N " &>>$LOG_FILE
         fi
     done
+    
