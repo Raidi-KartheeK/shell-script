@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOGS_FOLDER="/var/log/shell-practice" #log file
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1) #$0 command run inside shell script # cut -d "." -f1 (dilimater)
+SCRIPT_NAME=$(echo $0 |cut -d "." -f11) #$0 command run inside shell script # cut -d "." -f1 (dilimater)
 TIMESTAMP=$(date +%Y-%M-%S-%H-%M-%S) #time stamp
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
@@ -63,4 +63,5 @@ N="\e[0m" #reset color
     else
     fi
 done
+
 
