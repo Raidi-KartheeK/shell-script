@@ -34,20 +34,29 @@ N="\e[0m" #reset color
         echo -e "$2 is...$G SUCCESS $N" &>>$LOG_FILE
     fi
 } 
+
+        USAGE(){
+            echo -e "$R USAGE:: $N sudo sh 16-redirectors.sh package1 package2 package3 ..."
+            exit 1
+     }
     # Run the root check function
-        CHECK_ROOT
+    CHECK_ROOT
+    
+    if [ $# -eq 0 ]
+    then
+        USAGE
 
 # Loop through the provided arguments (packages)
-        for package in $@ # $@ is all arguments pass to it
-        do 
-        dnf list installed $package   &>>$LOG_FILE
+    for package in $@ # $@ is all arguments pass to it
+    do 
+        dnf list installed $package &>>$LOG_FILE
         if [ $? -ne 0 ]
     then
         echo "$package is not installed going to install it .."
         dnf install $package -y
         VALIDATE $? "installing $package" &>>$LOG_FILE
     else
-        echo -e "$package is already $Yinstalled .. noting to do$N " &>>$LOG_FILE
+        echo -e "$package is already $Y installed .. noting to do $N " &>>$LOG_FILE
         fi
     done
 
