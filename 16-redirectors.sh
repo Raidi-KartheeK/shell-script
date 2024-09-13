@@ -20,7 +20,8 @@ N="\e[0m" #reset color
         
          if [ $USERID -ne 0 ]
     then 
-        echo -e "$R please run the script with root user $N" &>>$LOG_FILE
+        echo -e "$R please run the script with root user $N" | tee -a $LOG_FILE
+    else
         exit 1
 
     fi
@@ -28,10 +29,12 @@ N="\e[0m" #reset color
         VALIDATE(){
         if [ $1 -ne 0 ]
     then 
-        echo -e "$2 is...$R FAILED $N" &>>$LOG_FILE
+        echo -e "$2 is...$R FAILED $N" | tee -a $LOG_FILE
+    else
         exit 1 
     else 
-        echo -e "$2 is...$G SUCCESS $N" &>>$LOG_FILE
+        echo -e "$2 is...$G SUCCESS $N" | tee -a $LOG_FILE
+    else
     fi
 } 
 
@@ -39,6 +42,7 @@ N="\e[0m" #reset color
             echo -e "$R USAGE:: $N sudo sh 16-redirectors.sh package1 package2 package3 ..."
             exit 1
      }
+        echo "script started executing at: $date"
     # Run the root check function
     CHECK_ROOT
     
@@ -57,6 +61,8 @@ N="\e[0m" #reset color
         dnf install $package -y
         VALIDATE $? "installing $package" &>>$LOG_FILE
     else
-        echo -e "$package is already $Y installed..noting to do $N" &>>$LOG_FILE
+        echo -e "$package is already $Y installed..noting to do $N" | tee -a $LOG_FILE
+    else
     fi
 done
+
