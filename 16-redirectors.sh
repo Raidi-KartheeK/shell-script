@@ -56,7 +56,6 @@ N="\e[0m" #reset color
         dnf install $package -y
         VALIDATE $? "installing $package" &>>$LOG_FILE
     else
-        echo -e "$package is already $Y installed .. noting to do $N" &>>$LOG_FILE
-
-        fi
+        echo -e "$package is already $Y installed..noting to do $N" &>>$LOG_FILE
+    fi
     done
