@@ -49,19 +49,19 @@ N="\e[0m" #reset color
         USAGE
     fi
 
-# # Loop through the provided arguments (packages)
-#     for package in $@ # $@ is all arguments pass to it
-#     do 
-#         dnf list installed $package &>>$LOG_FILE
-#         if [ $? -ne 0 ]
-#     then
-#         echo "$package is not installed going to install it .."
-#         dnf install $package -y
-#         VALIDATE $? "installing $package" &>>$LOG_FILE
-#     else
-#         echo -e "$package is already $Y installed..noting to do $N" | tee -a $LOG_FILE
-#     else
-#     fi
-# done
+# Loop through the provided arguments (packages)
+    for package in $@ # $@ is all arguments pass to it
+    do 
+        dnf list installed $package &>>$LOG_FILE
+        if [ $? -ne 0 ]
+    then
+        echo "$package is not installed going to install it .."
+        dnf install $package -y &>>$LOG_FILE
+        VALIDATE $? "installing $package" &>>$LOG_FILE
+    else
+        echo -e "$package is already $Y installed..noting to do $N" | tee -a $LOG_FILE
+    else
+    fi
+done
 
 
