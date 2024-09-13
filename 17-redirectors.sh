@@ -6,8 +6,6 @@ TIMESTAMP=$(date +%Y-%M-%S-%H-%M-%S) #time stamp
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
 
-
-
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -64,6 +62,7 @@ N="\e[0m" #reset color
     else
     fi
 done
+
 
 
 
