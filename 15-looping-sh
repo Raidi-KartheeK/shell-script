@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# Check if the user is root
-USERID=$(id -u)
-R="\e[31m
-G="\e[32m
-Y="\e[33m
-B="\e[34m
-
-        CHECK_ROOT(){ #to check the user is having root access are not  #    echo "user ID is:$USERID"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+B="\e[34m"
+N="\e[0m" #reset color 
+        USERID=$(id -u)   # Check if the user is root
+        
+        CHECK_ROOT(){ 
+            #to check the user is having root access are not  #    echo "user ID is:$USERID"
         
         if [ $USERID -ne 0 ]
 then 
@@ -24,19 +25,20 @@ then
 else 
         echo -e "$2 is...$G SUCCESS $N"
     fi
-    } 
+} 
+    # Run the root check function
     CHECK_ROOT
 
-#15-looping-sh git mysql nginx posfix
+# Loop through the provided arguments (packages)
     for package in $@ # $@ is all arguments pass to it
     do 
        dnf list install $package  
        if [ $? -ne 0 ]
-       then
+then
        echo "$package is not installed going to install .."
        dnf  install $package -y
-       VALIDATE $?  "installing $package"
+       VALIDATE $? "installing $package"
 else
-        echo "$package i salready installed .. noting to do"
+       echo "$package is already installed .. noting to do"
         fi
 done
