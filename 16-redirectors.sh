@@ -40,7 +40,7 @@ N="\e[0m" #reset color
             echo -e "$R USAGE:: $N sudo sh 16-redirectors.sh package1 package2 package3 ..."
             exit 1
      }
-        echo "script started executing at: $date"
+        echo "script started executing at: $(date)"
     # Run the root check function
     CHECK_ROOT
     
