@@ -20,7 +20,7 @@ N="\e[0m" #reset color
         
          if [ $USERID -ne 0 ]
     then 
-        echo -e"$R please run the script with root user $N" &>>$LOG_FILE
+        echo -e "$R please run the script with root user $N" &>>$LOG_FILE
         exit 1
 
     fi
@@ -45,6 +45,7 @@ N="\e[0m" #reset color
     if [ $# -eq 0 ]
     then
         USAGE
+    fi
 
 # Loop through the provided arguments (packages)
     for package in $@ # $@ is all arguments pass to it
