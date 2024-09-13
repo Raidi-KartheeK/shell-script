@@ -32,14 +32,16 @@ else
 # Loop through the provided arguments (packages)
     for package in $@ # $@ is all arguments pass to it
     do 
-       dnf list install $package  
+       dnf list installed $package  
        if [ $? -ne 0 ]
 then
-       echo "$package is not installed going to install .."
-       dnf  install $package -y
+       echo "$package is not installed going to install it .."
+       dnf install $package -y
        VALIDATE $? "installing $package"
 else
        echo "$package is already installed .. noting to do"
         fi
 done
+
+
 
