@@ -2,7 +2,7 @@
 
 LOGS_FOLDER="/var/log/git-shell-script" #log file
 SCRIPT_NAME=$(echo $0 |cut -d "." -f11) #$0 command run inside shell script # cut -d "." -f1 (dilimater)
-TIMESTAMP=$(date +%Y-%M-%S-%H-%M-%S) #time stamp
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S) #time stamp
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
 
@@ -20,7 +20,6 @@ N="\e[0m" #reset color
          if [ $USERID -ne 0 ]
     then 
         echo -e "$R please run the script with root user $N" | tee -a $LOG_FILE
-    else
         exit 1
 
     fi
