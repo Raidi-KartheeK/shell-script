@@ -58,7 +58,7 @@ N="\e[0m" #reset color
         VALIDATE $? "installing $package" &>>$LOG_FILE
     else
         echo -e "$package is already $Y installed..noting to do $N" | tee -a $LOG_FILE
-    else
+   
     fi
 done
 
