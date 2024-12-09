@@ -9,7 +9,7 @@ then
         exit 1
 
 fi
-dnf list installed git  #to dnf list that u installed 
+dnf list installed git   #to dnf list that u installed 
         if [ $? -ne 0 ]
 then
         echo "git is not instlled , going to install it.."
