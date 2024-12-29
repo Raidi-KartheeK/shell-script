@@ -10,7 +10,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 B="\e[34m"
-N="\e[0m" #reset color 
+N="\e[0m"  
         
         USERID=$(id -u)   # Check if the user is root
         
@@ -38,7 +38,7 @@ N="\e[0m" #reset color
             echo -e "$R USAGE:: $N sudo sh 16-redirectors.sh package1 package2 package3 ..."
             exit 1
      }
-        echo "script started executing at: $(date)"
+        echo "script started executing at: $(date)" 
     # Run the root check function
     CHECK_ROOT
     
@@ -61,7 +61,3 @@ N="\e[0m" #reset color
    
     fi
 done
-
-
-
-
