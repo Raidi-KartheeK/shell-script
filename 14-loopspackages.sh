@@ -31,7 +31,8 @@ else
 
 # Loop through the provided arguments (packages)
     for package in $@ # $@ is all arguments pass to it
-    do 
+    do #sudo sh 14-loopspackages.sh git mysql postfix nginx
+       
        dnf list installed $package  
        if [ $? -ne 0 ]
 then

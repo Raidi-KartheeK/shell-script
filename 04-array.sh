@@ -1,4 +1,4 @@
-#!/ bin/bash
+!/ bin/bash
  
  FRUITS=("APPLE" "KIWI" "ORANGE" "GUWA" "MANGO" "GRAPE")
 
@@ -12,4 +12,3 @@
  
 
  echo "First fruit is: ${FRUITS[@]}"
-

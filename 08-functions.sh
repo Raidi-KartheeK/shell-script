@@ -1,43 +1,37 @@
 #!/bin/bash
 
-# Check if the user is root
-R="\e[31m
-G="\e[32m
-Y="\e[33m
-B="\e[34m
-USERID=$(id -u)
-CHECK_ROOT(){ #to check the user is having root access are not
-                             #     echo "user ID is:$USERID"
-        if [ $USERID -ne 0 ]
-then 
-        echo "please run the script with root user"
+USERID =$(id -u)
+
+CHECK_ROOT (){
+        if [$USERID -ne 0]
+        then
+        echo "Run the user with root priveleges"
         exit 1
-
-    fi
+fi
 }
-    VALIDATE(){
-    if [ $1 -ne 0 ]
-then 
 
-        echo  -e "$2 is...$R FAILED $N"
-        exit 1 
-else 
-        echo -e "$2 is...$G SUCCESS $N"
-    fi
-    } 
-    CHECK_ROOT
-     
-     dnf list installed git
-        if [ $? -ne 0 ]
+VALIDATE () {
+        if [$1 -ne 0]
+        then
+                echo "$2 is failed"
+                exit 1
+        else
+                echo "$2 is success"
+        fi
+}
+
+CHECK_ROOT
+
+dnf list installed git
+if [ $? -ne 0 ]
 then
-        echo "git is not instlled , going to install it.."
+        echo "git is not instlled  going to install it.."
         dnf install git -y
-        VALIDATE $? #exit status check 
+        VALIDATE $? "installing git" 
 else
         echo "git is already installed"
 fi
 
- 
 dnf list install mysql #mysql installation
 if [ $? -ne 0 ]
 then
