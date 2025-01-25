@@ -41,6 +41,3 @@ else
 else
         echo "mysql is already installed ...."
 fi
-
-
-
