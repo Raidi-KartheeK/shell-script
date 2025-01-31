@@ -6,7 +6,7 @@ DAYS=${3: -14} # IF $3 IS EMPTY DEFAULT IS 14 DAYS.
 
 # CHECK THE SOURCE AND DESTINATION ARE PROVIDED
 
-if [$# -1t 2]
+if [$# -lt 2]
 then
     USAGE
 fi
@@ -42,4 +42,4 @@ then
     fi
 else
     echo "No files older than $DAYS"
-fi
+fi  
