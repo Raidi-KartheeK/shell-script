@@ -12,3 +12,4 @@ echo "exit command is failure"
 exit 1]
 fi
 echo "program is sucess"
+
