@@ -9,8 +9,9 @@ N="\e[0m"
 LOGS_FOLDER="/var/log/shell-roboshop"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
-
+START_TIME=$(date +%s)
 mkdir -p $LOGS_FOLDER
+SCRIPT_DIR=$PWD
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
 
 if [ $USERID -ne 0 ]; then
@@ -27,20 +28,18 @@ VALIDATE(){ # functions receive inputs through args just like shell script args
     fi
 }
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
-VALIDATE $? "Adding Mongo repo"
+cp $SCRIPT_DIR/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>>$LOG_FILE
+VALIDATE $? "Adding RabbitMQ repo"
+dnf install rabbitmq-server -y &>>$LOG_FILE
+VALIDATE $? "Installing RabbitMQ Server"
+systemctl enable rabbitmq-server &>>$LOG_FILE
+VALIDATE $? "Enabling RabbitMQ Server"
+systemctl start rabbitmq-server &>>$LOG_FILE
+VALIDATE $? "Starting RabbitMQ"
+rabbitmqctl add_user roboshop roboshop123 &>>$LOG_FILE
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$LOG_FILE
+VALIDATE $? "Setting up permissions"
 
-dnf install mongodb-org -y &>>$LOG_FILE
-VALIDATE $? "Installing MongoDB"
-
-systemctl enable mongod &>>$LOG_FILE
-VALIDATE $? "Enable MongoDB"
-
-systemctl start mongod 
-VALIDATE $? "Start MongoDB"
-
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
-VALIDATE $? "Allowing remote connections to MongoDB"
-
-systemctl restart mongod
-VALIDATE $? "Restarted MongoDB"
+END_TIME=$(date +%s)
+TOTAL_TIME=$(( $END_TIME - $START_TIME ))
+echo -e "Script executed in: $Y $TOTAL_TIME Seconds $N"
